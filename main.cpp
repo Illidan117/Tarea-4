@@ -133,17 +133,17 @@ bool existe(string nombre_archivo, string str)
 int obtenerMayor(string nombre)
 {
     //base obtenida de https://github.com/Ceutec/ArchivosBinarios/blob/master/main.cpp
-    ifstream in(nombre.c_str()); //ifstream usado para lectura de archivos
-    in.seekg(0,ios::end); //seekg para determinar la posicion
-    int tamano = in.tellg(); // determinar el tamaño
-    in.seekg(0,ios::beg); //seekg  para determina la posicion
+    ifstream read(nombre.c_str()); //ifstream usado para lectura de archivos
+    read.seekg(0,ios::end); //seekg para determinar la posicion
+    int tamano = read.tellg(); // determinar el tamaÃ±o
+    read.seekg(0,ios::beg); //seekg  para determina la posicion
 
     int mayor = -999; //se define la variable mayor
 
-    while(in.tellg()<tamano) //se compara la posicion con el tamaño
+    while(read.tellg()<tamano) //se compara la posicion con el tamaÃ±o
     {
         int num; //variable num para almacenamiento
-        in.read((char*)&num,4); //se le da valor a la variable num
+        read.read((char*)&num,4); //se le da valor a la variable num
         if(mayor<num) //cpmparacion entre la variable mayor y el numero almacenado
             mayor = num; //de ser num mayor que mayor, mayor adquiere el valor de num
     }
